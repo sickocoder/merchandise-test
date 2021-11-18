@@ -1,7 +1,17 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { getRequest } from 'services/utils';
 
 const Home: NextPage = () => {
+  const handleClick = async () => {
+    try {
+      const res = await getRequest('addresses');
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <Head>
@@ -11,6 +21,9 @@ const Home: NextPage = () => {
       </Head>
 
       <h1>Hello, Merchadise Test</h1>
+      <button type="button" onClick={handleClick}>
+        Test
+      </button>
     </div>
   );
 };
