@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -13,8 +17,47 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "noImplicitAny": true,
+    "importHelpers": true,
+    "baseUrl": ".",
+    "paths": {
+      "@builders/*": [
+        "builders/*"
+      ],
+      "@components/*": [
+        "client/components/*"
+      ],
+      "@services/*": [
+        "client/services/*"
+      ],
+      "@client/*": [
+        "client/*"
+      ],
+      "@test-suite": [
+        "client/test-suite/index.tsx"
+      ],
+      "@constants": [
+        "constants/index.ts"
+      ],
+      "@types": [
+        "types/*"
+      ]
+    },
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    ".next",
+    ".vercel",
+    "builders",
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.hbs"
+  ]
 }
