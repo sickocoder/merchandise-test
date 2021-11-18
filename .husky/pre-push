@@ -2,6 +2,5 @@
 . "$(dirname "$0")/_/husky.sh"
 
 npm run type-check
-npm run test:client --clearCache
-npm run test:server --clearCache
+npm run test --clearCache
 npx --no-install test --passWithNoTests
