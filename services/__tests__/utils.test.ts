@@ -1,5 +1,5 @@
 import { ApiRequestMethod } from '../services.types';
-import { CORS_BYPASS, deleteRequest, getRequest, patchRequest, postRequest } from '../utils';
+import { deleteRequest, getRequest, patchRequest, postRequest } from '../utils';
 
 const method: ApiRequestMethod = 'GET';
 const makeSut = () => ({ sut: getRequest });
@@ -21,15 +21,18 @@ describe('Get Request', () => {
     const url = '/user/password';
     const response = await getRequest(url);
 
-    expect(fetch).toHaveBeenCalledWith(`${CORS_BYPASS}${process.env.NEXT_PUBLIC_API_URL}/${url}`, {
-      method,
-      credentials: 'include',
-      redirect: 'follow',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Basic ${process.env.NEXT_PUBLIC_API_URL}:`,
-      },
-    });
+    expect(fetch).toHaveBeenCalledWith(
+      `${process.env.NEXT_CORS_BYPASS}${process.env.NEXT_PUBLIC_API_URL}/${url}`,
+      {
+        method,
+        credentials: 'include',
+        redirect: 'follow',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Basic ${process.env.NEXT_PUBLIC_API_URL}:`,
+        },
+      }
+    );
 
     expect(response).toEqual({ data, status: 200 });
   });
@@ -48,16 +51,19 @@ describe('Get Request', () => {
 
     const response = await postRequest(url, data);
 
-    expect(fetch).toHaveBeenCalledWith(`${CORS_BYPASS}${process.env.NEXT_PUBLIC_API_URL}/${url}`, {
-      method: 'POST',
-      credentials: 'include',
-      redirect: 'follow',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Basic ${process.env.NEXT_PUBLIC_API_URL}:`,
-      },
-      body: JSON.stringify(data),
-    });
+    expect(fetch).toHaveBeenCalledWith(
+      `${process.env.NEXT_CORS_BYPASS}${process.env.NEXT_PUBLIC_API_URL}/${url}`,
+      {
+        method: 'POST',
+        credentials: 'include',
+        redirect: 'follow',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Basic ${process.env.NEXT_PUBLIC_API_URL}:`,
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     expect(response).toEqual({ data: dataReturn, status: 204 });
   });
@@ -76,16 +82,19 @@ describe('Get Request', () => {
 
     const response = await patchRequest(url, data);
 
-    expect(fetch).toHaveBeenCalledWith(`${CORS_BYPASS}${process.env.NEXT_PUBLIC_API_URL}/${url}`, {
-      method: 'PATCH',
-      credentials: 'include',
-      redirect: 'follow',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Basic ${process.env.NEXT_PUBLIC_API_URL}:`,
-      },
-      body: JSON.stringify(data),
-    });
+    expect(fetch).toHaveBeenCalledWith(
+      `${process.env.NEXT_CORS_BYPASS}${process.env.NEXT_PUBLIC_API_URL}/${url}`,
+      {
+        method: 'PATCH',
+        credentials: 'include',
+        redirect: 'follow',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Basic ${process.env.NEXT_PUBLIC_API_URL}:`,
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     expect(response).toEqual({ data: dataReturn, status: 204 });
   });
@@ -102,15 +111,18 @@ describe('Get Request', () => {
 
     const response = await deleteRequest(url);
 
-    expect(fetch).toHaveBeenCalledWith(`${CORS_BYPASS}${process.env.NEXT_PUBLIC_API_URL}/${url}`, {
-      method: 'DELETE',
-      credentials: 'include',
-      redirect: 'follow',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Basic ${process.env.NEXT_PUBLIC_API_URL}:`,
-      },
-    });
+    expect(fetch).toHaveBeenCalledWith(
+      `${process.env.NEXT_CORS_BYPASS}${process.env.NEXT_PUBLIC_API_URL}/${url}`,
+      {
+        method: 'DELETE',
+        credentials: 'include',
+        redirect: 'follow',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Basic ${process.env.NEXT_PUBLIC_API_URL}:`,
+        },
+      }
+    );
 
     expect(response).toEqual({ data: dataReturn, status: 200 });
   });
@@ -144,7 +156,7 @@ describe('Get Request', () => {
       await sut(url);
 
       expect(fetch).toHaveBeenCalledWith(
-        `${CORS_BYPASS}${process.env.NEXT_PUBLIC_API_URL}/${url}`,
+        `${process.env.NEXT_CORS_BYPASS}${process.env.NEXT_PUBLIC_API_URL}/${url}`,
         {
           method,
           credentials: 'include',

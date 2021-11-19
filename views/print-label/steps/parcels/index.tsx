@@ -6,7 +6,7 @@ import { StepComponentProps } from '../steps.types';
 import BasicAccordion from '../../shared/basic-accordion';
 import CreateAddressForm from './form';
 
-const AddressesStep: FC<StepComponentProps> = ({
+const ParcelsStep: FC<StepComponentProps> = ({
   expanded,
   stepId,
   title,
@@ -38,4 +38,4 @@ const AddressesStep: FC<StepComponentProps> = ({
   );
 };
 
-export default AddressesStep;
+export default ParcelsStep;

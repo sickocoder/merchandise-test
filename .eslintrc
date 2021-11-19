@@ -8,11 +8,11 @@
       "alias": {
         "map": [
           ["@builders", "./builders"],
-          ["@components", "./client/components"],
-          ["@services", "./client/services"],
-          ["@client", "./client"],
-          ["@test-suite", "./client/test-suite/index.tsx"],
-          ["@constants", "./constants/index.ts"]
+          ["@components", "./components"],
+          ["@services", "./services"],
+          ["@test-suite", "./test-suite/index.tsx"],
+          ["@constants", "./constants/index.ts"],
+          ["@utils", "./utils"]
         ],
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }

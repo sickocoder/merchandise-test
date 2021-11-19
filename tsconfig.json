@@ -25,22 +25,22 @@
         "builders/*"
       ],
       "@components/*": [
-        "client/components/*"
+        "components/*"
       ],
       "@services/*": [
-        "client/services/*"
-      ],
-      "@client/*": [
-        "client/*"
+        "services/*"
       ],
       "@test-suite": [
-        "client/test-suite/index.tsx"
+        "test-suite/index.tsx"
       ],
       "@constants": [
         "constants/index.ts"
       ],
       "@types": [
         "types/*"
+      ],
+      "@utils": [
+        "utils/*"
       ]
     },
     "incremental": true

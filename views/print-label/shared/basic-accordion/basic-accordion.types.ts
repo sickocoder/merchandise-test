@@ -5,5 +5,7 @@ export interface BasicAccordionProps {
   expanded: boolean;
   title: string;
   children: ReactNode;
+  resourceName: string;
+  panelLoading: string;
   onChange: (panel: string) => (_event: SyntheticEvent, newExpanded: boolean) => void;
 }

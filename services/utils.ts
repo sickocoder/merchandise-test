@@ -2,7 +2,7 @@ import { ApiRequestMethod, HttpResponse } from './services.types';
 
 const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL || '';
 const API_KEY = process.env.NEXT_PUBLIC_API_URL || '';
-export const CORS_BYPASS = 'https://cors-anywhere.herokuapp.com/';
+const CORS_BYPASS = process.env.NEXT_CORS_BYPASS || '';
 
 export const makeRequest =
   (method: ApiRequestMethod) =>
