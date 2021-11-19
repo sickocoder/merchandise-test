@@ -24,7 +24,7 @@ These are the technologies used on this project:
 - Eslint (to ensure code quality)
 - Prettier (to ensure code quality)
 
-### Paterns
+### Paterns/Concepts
 
 - clean code (used partially)
 - TDD (used partially as not all components/features are tested)
